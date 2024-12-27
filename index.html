@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav Babu P</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgb(16, 16, 68);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        header {
+            
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav{
+        width: auto;
+        background-color: rgb(16, 16, 68);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul{
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        }
+        nav li{
+        height: 50px;
+        }
+        nav a{
+        height: 100%;
+        padding: 0 30px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: rgb(243, 240, 240);
+        }
+        nav a:hover{
+        color: rgb(86, 86, 233);
+        /* font-size: 1.01rem; */
+        transition: .3s ease-in-out;
+        }
+        nav li:first-child{
+         margin-right: auto;
+        }
+        .sidebar{
+        color: white;
+        position: fixed;
+        top: 0; 
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+        list-style: none;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        transition: .8s ease-in-out;
+        }
+        .sidebar li{
+        width: 100%;
+        }
+        .sidebar a{
+        width: 100%;
+        }
+        .menu-button{
+        display: none;
+        }
+
+        .checkbtn{
+            font-size: 22px;
+            color: white;
+            float: right;
+            line-height: 70px;
+            margin-right: 20px;
+            cursor: pointer;
+            display: none;
+
+        }
+        #check{
+           display: none; 
+        }
+
+        main hr {
+            border: 0;
+            background: rgb(86, 86, 233);
+            height: 1.2px;
+            margin: 10px 84px;
+            
+        }
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 50px 0;
+            height: 100vh;
+        }
+        .firstSection > div {
+            width: 30%;
+        }
+        .leftSection {
+            font-size: 1.8rem;
+            margin: 30px;
+        }
+        .rightSection img {
+            width: 90%;
+            align-items: center;
+        }
+        .purple {
+            color: rgb(190, 129, 247);
+        }
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 100vh;
+        }
+        
+        .top-Box{
+            border: 2px solid rgb(16, 16, 68);
+            width: auto;
+            height: 70px;
+        }
+        .secondSection h1 {
+            margin: 20px;
+            margin-top: 50px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .secondSection .outerBox {
+            /* background: white;
+            width: 80vw;
+            height: 2px; */
+            margin: 50px 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+
+        .eduBox{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid white;
+            width: 17vw;
+            height: 50vh;
+            flex-wrap: wrap;
+            margin: 20px 20px;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            text-align: center;
+            border-radius: 30px;  
+        }
+
+        .eduLogo{
+            height: 20vh;
+            width: auto;
+        }
+        .eduLogo img{
+            aspect-ratio: 5/7;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+
+        }
+        .eduBox a{
+            color: white;
+            text-decoration: none;
+            margin: 5px 5px;
+        }
+        .eduBox:hover{
+            border:2px solid rgb(86, 86, 233); 
+            transition: 0.3s ease-in-out;
+        }
+        .eduBox a:hover{
+            color: rgb(86, 86, 233);
+            /* font-size: 1.01rem; */
+            transition: 0.3s ease-in-out;
+        }
+        .eduTop,
+        .eduBottom{
+            margin: 10px 0px;
+            text-decoration: underline;
+        }
+        .thirdSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 120vh;
+        }
+        .thirdSection h1 {
+            margin: 20px;
+            margin-top: 50px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .image-box {
+            width: 30vw;
+            height: 70vh;
+            /* width: 100%; */
+            margin: 20px auto;
+            /* height: 140%; */
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            border: 7.5px solid rgb(245, 245, 248);
+        }
+        .image-box:hover{
+            border: 8px solid rgb(69, 69, 247);
+            transition: .3s ease-in-out;
+
+        }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .image-box img.active {
+            opacity: 1;
+        }
+        .nav-btn{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgb(0, 0, 0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-btn:hover{
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+        }
+
+        .prev-btn{
+            left:2px;
+        }
+        .next-btn{
+            right: 2px;
+        }
+
+        .fourthSection{
+          text-align: center;
+          margin: 30px auto;
+        }
+        .fourthSection h1 {
+            margin-bottom: 20px;
+        }
+        
+        .social-img{
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .social-img img{
+            height: 60px;
+            width: auto;
+            margin: 10px;
+        }
+
+        .social-img img:hover{
+            height: 61px;
+            cursor: pointer;
+            transition: .07s ease-in-out; 
+            
+        }
+        .sidebar svg {
+            fill: white !important; 
+        }
+
+        .sidebar a:hover svg {
+             fill: rgb(235, 235, 245);
+        }
+
+        
+        
+    
+        .contactSection{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 80vw;
+            margin: auto;
+            height: 100vh;
+            /* text-align: center; */
+            color: white;
+            
+        }
+        .contact-form form{
+            /* background-color: rgb(16, 16, 68); */
+            padding: 20px;
+            border-radius: 10px;
+            width: 40vw;
+        }
+
+        form input,
+        form textarea,
+        form button{
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 3px solid white;
+            border-radius: 15px;
+            font-size: 15px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: transparent;
+            
+        }
+        form button{
+            margin: auto;
+            width: 30%;
+        }
+        form input,
+        form textarea,
+        form button {
+         border: 2px solid white; /* Keep the border white by default */
+        outline: none; /* Remove the default focus outline */
+        transition: border-color 0.3s ease; /* Smooth transition for the border color */
+    }
+
+        /* form input:focus, 
+        form textarea:focus,
+        form button:focus {
+         border: 2px solid rgb(86, 86, 233);  
+        box-shadow: none; 
+        color:white
+        } */
+        form input:hover, 
+        form textarea:hover,
+        form button:hover {
+        border: 2px solid rgb(86, 86, 233); /* Keep the border white on focus */
+        box-shadow: none; /* Remove any focus-related shadow */
+        color: rgb(240, 240, 241);
+        transition: border-color 0.3s ease;
+        
+        }
+        form button:hover{
+            cursor: pointer;
+        }
+
+
+        .favSection{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            max-width: 90vw;
+            margin: auto;
+            height: 100vh;
+            
+            color: white;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+            
+        }
+        .favOuterContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 75vw;
+            max-height: 100vh;
+            margin: auto;
+            text-align: center;
+        }
+        .favContainer{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid white;
+            width: 17vw;
+            height: 50vh;
+            flex-wrap: wrap;
+            margin: 20px 20px;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            text-align: center;
+            border-radius: 30px;
+            
+        }
+        .favContainer h3{
+            margin: 10px;
+            font-size: .8rem;
+            
+        }
+        .box{
+            height: 10vw;
+            height: 35vh;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+             /* border: 2px solid white; 
+             padding: 5px 5px;  */
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .box img{
+            margin: 10px 10px;
+            aspect-ratio: 5/7;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .favContainer a{
+            text-decoration: none;
+            color: white;
+        }
+        .favContainer:hover{
+            border:2px solid rgb(86, 86, 233);
+            transition: 0.3s ease-in-out;
+        }
+        .favContainer a:hover{
+            color: rgb(86, 86, 233);
+             /* font-size: 1.01rem;  */
+            transition: 0.3s ease-in-out;
+        } 
+        .favSection h1 {
+            display: block;
+            margin: 10px;
+            margin-top: 10px;
+            font-size: 1.5rem;
+            text-align: center;
+            width: 80vw;
+            
+        }
+        .favTop{
+            text-decoration: underline;
+        }
+        
+
+        /* Simple Footer */
+        .simple-footer {
+            background-color: rgb(11, 11, 40);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .simple-footer p {
+            margin: 0;
+        }
+       
+
+
+        @media screen and (max-width: 1500px) {
+            .firstSection {
+            flex-direction: column-reverse;
+            height: auto;
+        }
+
+            .rightSection{
+                width: auto;
+            }
+            .rightSection img{
+               align-items: center;
+                width: 45vw;
+                /* margin-right: 30px; */
+            }
+            .secondSection{
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                
+                
+            }
+
+            .outerBox{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                box-sizing: border-box;
+            }
+            .eduBox{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: .5rem;
+                box-sizing: border-box;
+                width: 75%;
+                
+            }
+
+            .thirdSection{
+                height: auto;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                width: auto;
+            }
+            .thirdSectionBox{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                box-sizing: border-box;
+                width: 90%;
+
+            }
+            .image-box{
+                width: 80vw;
+                align-items: center;
+                margin: auto;
+
+            }
+
+            
+            .favSection{
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+            }
+            .favOuterBox{
+                width: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            .favOuterContainer{
+                flex-direction: column;
+                /* flex-wrap: wrap; */
+                width: 90%;
+            }
+            .favContainer{
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                
+                
+            }
+            .favContainer img{
+                margin: auto;
+                
+            }
+            .favContainer h3{
+                text-align: center;
+                /* font-size: .5rem; */
+            }
+
+            .contact-form{
+                width: auto;
+                align-items: center;
+                margin: 0%;
+            }
+            .contact-form .btn{
+                width: auto;
+                font-size: 1rem;
+            }
+            .fourthSection h1{
+                font-size: 1rem;
+                align-items: center;
+                margin: 10px 10px;
+            }
+
+            @media(max-width: 1000px){
+                .sidebar{
+                    transition: 2s ease;
+                }
+                .hideOnMobile{
+                    display: none;
+                }
+                .menu-button{
+                    display: block;
+                }
+                }
+                .sidebar svg {
+                     color: white; /* Applies color to the SVG elements */
+                     fill: white;  /* For paths inside the SVG */
+                }
+                .close-button{
+                    transition: .7s ease;
+                }
+                .menu-button{
+                    transition: .7s ease;
+                }
+
+                /* Ensure the paths inside SVG are targeted */
+                 .sidebar svg path {
+                 fill: white !important; /* Override inline fill attributes */
+                 color: white !important; /* Ensure fallback color */
+                 transition: fill .3 ease-in-out, color 0.3s ease-in-out;
+                 }
+                @media(max-width: 400px){
+                .sidebar{
+                    width: 40%;
+                }
+                }
+                .close-button{
+                    transition: .7s ease;
+                }
+                .menu-button{
+                    transition: .7s ease;
+                }
+
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="sidebar">
+                <li class="close-button"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" aria-label="Close Sidebar"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+                <li><a href="#firstSection">Home</a></li>
+                <li><a href="#secondSection">Education</a></li>
+                <li><a href="#thirdSection">Gallery</a></li>
+                <li><a href="#favSection">Favourites</a></li>
+                <li><a href="#contactSection">Contact Me</a></li>
+                <li><a href="#fourthSection">Profiles</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Pranav Babu P</a></li>
+                <li class="hideOnMobile"><a href="#firstSection">Home</a></li>
+                <li class="hideOnMobile"><a href="#secondSection">Education</a></li>
+                <li class="hideOnMobile"><a href="#thirdSection">Gallery</a></li>
+                <li class="hideOnMobile"><a href="#favSection">Favourites</a></li>
+                <li class="hideOnMobile"><a href="#contactSection">Contact Me</a></li>
+                <li class="hideOnMobile"><a href="#fourthSection">Profiles</a></li>
+                <li class="menu-button"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26" aria-label="Open Sidebar"><path fill="currentColor"  d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+            </ul>
+            
+    
+           
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection" id="firstSection">
+            <div class="leftSection">
+                Hi, My Name is <span class="purple">Pranav Babu P</span>
+                <div>And I am a passionate </div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="pb.png" alt="">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection" id="secondSection">
+            <div class="top-Box"></div>
+            <h1>My Education</h1>
+            <div class="outerBox">
+                <div class="eduBox" id="eduBox1">
+                    <span class="eduTop">
+                        10th Class
+                    </span>
+                    <div class="eduLogo">
+                        <img src="kjps_logo.png" alt="">
+                    </div>
+                    <a href="https://www.kjohnpublicschool.org/online-reg.php" target="_blank"><h3>K. John Public School Nagpur</h3></a>
+                    <span class="eduBottom">
+                        (2012-2017)
+                    </span>
+                </div>
+                <div class="eduBox" id="eduBox2">
+                    <span class="eduTop">
+                        High School
+                    </span>
+                    <div class="eduLogo">
+                        <img src="bvm.png" alt="">
+                    </div>
+                    <a href="https://www.bvmskn.edu.in/" target="_blank"><h3>Bhavan's Bhagwandas Purohit Vidya Mandir Nagpur</h3></a>
+                    <span class="eduBottom">
+                        (2017-2019)
+                    </span>
+                </div>
+                <div class="eduBox" id="eduBox3">
+                    <span class="eduTop">
+                            Graduation
+                    </span>
+                    <div class="eduLogo">
+                        <img src="MES.png" alt="">
+                    </div>
+                    <a href="https://meskc.ac.in/" target="_blank"><h3>MES Kalladi College Mannarkkad</h3></a>
+                    <span class="eduBottom">
+                        (2019-2012)
+                    </span>
+                </div>
+                <div class="eduBox" id="eduBox4">
+                    <span class="eduTop">
+                        Post Graduation
+                    </span>
+                    <div class="eduLogo">
+                        <img src="cusat.png" alt="">
+                    </div>
+                    <a href="https://cucek.cusat.ac.in/" target="_blank"><h3>Cochin University College of Engineering Kuttanadu</h3></a>
+                    <span class="eduBottom">
+                        (2022-2024)
+                    </span>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <section class="thirdSection" id="thirdSection">
+            <div class="top-Box"></div>
+            <div class="thirdSectionBox">
+                <h1>The images I treasure, captured with love.</h1>
+                <div class="image-box">
+                    <button class="nav-btn prev-btn"><</button>
+                    <img src="pic1.jpeg" alt="Image 1" class="active">
+                    <img src="pic2.jpeg" alt="Image 2">
+                    <img src="pic3.JPG" alt="Image 3">
+                    <img src="pic4.JPG" alt="Image 4">
+                    <img src="pic5.JPG" alt="Image 5">
+                    <img src="pic6.jpeg" alt="Image 5">
+                    <button class="nav-btn next-btn">></button>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <section class="favSection" id="favSection">         
+                <div class="top-Box"></div>
+                <div><h1 id="fav-h1" >My Favourites</h1></div>
+                
+                    <div class="favContainer">
+                        <div><h3 class="favTop">Movie</h3></div>
+                        <div class="box" id="box1">
+                            <img src="film.jpg" alt="">
+                        </div>
+                        <div><h3><a href="https://youtu.be/ELeMaP8EPAA?si=F2tk04I0-DfUpyhv" target="_blank">Once Upon a Time... in Hollywood (2019)</a></h3></div>
+                    </div>
+                    <div class="favContainer">
+                <div><h3 class="favTop">TV Show</h3></div>
+                <div class="box" id="box2">
+                    <img src="show.jpg" alt="">
+                </div>
+                <div><h3><a href="https://youtu.be/HN4oydykJFc?si=sGeusT9tMhZhD1w-" target="_blank">Better Call Saul (2015-2022)</a></h3></div>
+               </div>
+               <div class="favContainer">
+                <div><h3 class="favTop">Song</h3></div>
+                <div class="box" id="box3">
+                    <img src="song.jpg" alt="">
+                </div>
+                <div><h3><a href="https://youtu.be/yuFI5KSPAt4?si=M99fRDx2rhwzzwwA" target="_blank">Snow (Hey Oh) (2006)</a></h3></div>
+               </div>
+               <div class="favContainer">
+                <div><h3 class="favTop">Video Game</h3></div>
+                <div class="box" id="box4">
+                    <img src="game.jpg" alt="">
+                </div>
+                <div><h3><a href="https://youtu.be/eaW0tYpxyp0?si=PuLbF7xPY_fFh6q8" target="_blank">Red Dead Redemption 2 (2018)</a></h3></div>
+               </div>    
+        </section>
+        <hr>
+
+        <section class="contactSection" id="contactSection">
+            <h1>Contact Me!!!</h1>
+            <br>
+            <div class="contact-form" id="contact-form">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="105daae8-9d3d-4f7a-9aa8-17f939f3a97c">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="50" rows="5" placeholder="Your Message...."></textarea>
+
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+
+        </section>
+        <hr>
+
+        <section class="fourthSection" id="fourthSection">
+            <h1>Let's stay connected! Reach out to me on any of my social profiles : )</h1>
+            <div class="social-img">
+                <a href="https://www.instagram.com/the.real_folk_blues/" target="_blank">
+                    <img src="instaLogo.png" alt="img-insta">
+                </a>
+                <a href="https://www.linkedin.com/in/pranav-babu-p-a33396342/" target="_blank">
+                    <img src="linkedInLogo.png" alt="img-linkedIn">
+                </a>
+                <a href="https://x.com/iamPranavBabu" target="_blank">
+                    <img src="X.png" alt="img-X">
+                </a>
+                <a href="https://boxd.it/1B7tt" target="_blank">
+                    <img src="letterboxd.png" alt="img-X">
+                </a>
+                <a href="https://discord.com/channels/@me" target="_blank">
+                    <img src="discord.png" alt="img-discord">
+                </a>
+            </div>
+        </section>
+
+
+
+        <footer class="simple-footer">
+            <p>&copy; 2024 &nbsp; www.PranavBabu.com &nbsp; All Rights Reserved.</p>
+        </footer>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer. . . . .', 'Photographer : )',],
+            typeSpeed: 50,
+            loop: true
+        });
+
+        const images = document.querySelectorAll('.image-box img');
+        let currentIndex = 0;
+
+        function shuffleImages() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(shuffleImages, 10000);
+
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currIndex = 0;
+
+        function showImage(index){
+            images.forEach((img,i)=>{
+                img.classList.toggle('active',i==index);
+            });
+        }
+
+        prevBtn.addEventListener('click',()=>{
+            currIndex = (currIndex  - 1 + images.length) % images.length;
+            showImage(currIndex);
+        });
+
+        nextBtn.addEventListener('click',()=>{
+            currIndex = (currIndex+1) % images.length;
+            showImage(currIndex);
+        });
+
+        function showSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'flex'
+        }
+        function hideSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'none'
+        }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const sidebar = document.querySelector('.sidebar');
+        const menuButton = document.querySelector('.menu-button');
+        const closeButton = document.querySelector('.close-button');
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+        // Show sidebar
+        menuButton.addEventListener('click', () => {
+            sidebar.style.display = 'flex';
+        });
+
+        // Hide sidebar
+        closeButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            sidebar.style.display = 'none';
+        });
+
+        // Close sidebar after clicking a link but stay on the section
+        sidebarLinks.forEach((link) => {
+            link.addEventListener('click', (event) => {
+                const target = link.getAttribute('href');
+                if (target.startsWith('#') && target.length > 1) {
+                    // Allow default behavior for valid anchor links
+                    sidebar.style.display = 'none';
+                } else {
+                    // Prevent default for invalid or empty links
+                    event.preventDefault();
+                    sidebar.style.display = 'none';
+                }
+            });
+        });
+    });
+
+
+
+
+    </script>
+</body>
+</html>
